@@ -4,6 +4,7 @@ import { ProductService } from '../service/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductDto } from '../model/product.dto';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-product-edit',
@@ -19,13 +20,14 @@ export class ProductEditComponent {
     private _productService: ProductService,
     private _route: ActivatedRoute,
     private _formBuilder: FormBuilder,
-    private _router: Router
+    private _router: Router,
+    private _messageService:MessageService
   ) {
     let fb = this._formBuilder;
     this.productForm = fb.group<ProductDto>({
       name: this._formBuilder.nonNullable.control('', Validators.required),
       description: this._formBuilder.nonNullable.control('', Validators.required),
-      price: this._formBuilder.nonNullable.control(0, Validators.required)
+      price: this._formBuilder.nonNullable.control(0,[ Validators.required, Validators.pattern("^[0-9]*$")])
     });
     this._route.paramMap.subscribe(
       params => {
@@ -46,7 +48,7 @@ export class ProductEditComponent {
           this.productForm.patchValue(this.product);
         },
         error: (err) => {
-          console.log("error", err);
+          this._messageService.add({severity:'error', key:"br", summary:'Error',detail:'Error Selecting Product'})
         },
         complete: () => {
           console.log("Product Detailing Completed");
@@ -61,7 +63,7 @@ export class ProductEditComponent {
           this._router.navigateByUrl("/products");
         },
         error: (err) => {
-          console.log("error", err);
+          this._messageService.add({severity:'error', summary:'Error',detail:'Unable to Update Product'})
         },
         complete: () => {
           console.log("Product Detailing Completed");
