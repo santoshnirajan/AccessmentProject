@@ -1,1 +1,6 @@
-<p>product-search works!</p>
+<div class="card flex flex-wrap justify-content-center gap-3">
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" style="width: 300px;" [(ngModel)]="searchTerm" (ngModelChange)="onModelChange($event)" pInputText />
+    </span>
+</div>
