@@ -8,6 +8,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrimengModule } from './shared/primeng.module';
+import { HttpClientModule } from '@angular/common/http'
+import { ProductService } from './service/product.service';
+import { Environment } from './environment/environment.service';
+import { CurrencyFormatPipe } from './currency-format.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -15,15 +21,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    CurrencyFormatPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    PrimengModule
   ],
-  providers: [],
+  providers: [ProductService, Environment],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
