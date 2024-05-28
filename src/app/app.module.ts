@@ -14,6 +14,8 @@ import { ProductService } from './service/product.service';
 import { Environment } from './environment/environment.service';
 import { CurrencyFormatPipe } from './currency-format.pipe';
 import { HighlightDirective } from './highlight.directive';
+import { MessageService } from 'primeng/api';
+import { ProductAddComponent } from './product-add/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { HighlightDirective } from './highlight.directive';
     ProductEditComponent,
     ProductSearchComponent,
     CurrencyFormatPipe,
-    HighlightDirective
+    HighlightDirective,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { HighlightDirective } from './highlight.directive';
     HttpClientModule,
     PrimengModule
   ],
-  providers: [ProductService, Environment],
+  providers: [ProductService, Environment,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
