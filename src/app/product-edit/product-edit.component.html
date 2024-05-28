@@ -1,1 +1,32 @@
-<p>product-edit works!</p>
+<div class="container">
+    <form [formGroup]="productForm">
+    <div class="form-group">
+      <label for="textbox1">Name</label>
+      <input type="text" id="textbox1" formControlName="name" class="form-control" [ngClass]="{'is-invalid': productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)}">
+      <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)" class="invalid-feedback">
+        <div *ngIf="productForm.get('name')?.errors?.['required']">Name is required.</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="textbox2">Description</label>
+      <input type="text" id="description" formControlName="description" class="form-control" [ngClass]="{'is-invalid': productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)}">
+      <div *ngIf="productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)" class="invalid-feedback">
+        <div *ngIf="productForm.get('description')?.errors?.['required']">Description is required.</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="textbox3">Price</label>
+      <input type="text" id="number" formControlName="price" class="form-control" [ngClass]="{'is-invalid': productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)}">
+      <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)" class="invalid-feedback">
+        <div *ngIf="productForm.get('price')?.errors?.['required']">Price is required.</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <button type="submit" class="update-button" [disabled]="productForm.invalid" (click)="updateProduct()">Update</button>
+    </div>
+  </form>
+</div>
+  
