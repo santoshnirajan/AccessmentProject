@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
     declarations: [
@@ -15,13 +16,15 @@ import { InputTextModule } from 'primeng/inputtext';
         ButtonModule,
         TableModule,
         SpeedDialModule,
-        InputTextModule
+        InputTextModule,
+        ToastModule
     ],
     exports: [
         ButtonModule,
         TableModule,
         SpeedDialModule,
-        InputTextModule
+        InputTextModule,
+        ToastModule
     ]
 })
 export class PrimengModule { }

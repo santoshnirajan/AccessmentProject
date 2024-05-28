@@ -13,9 +13,6 @@ export class ProductService {
     private _environment: Environment,
     private _httpService: HttpClient) { }
 
-  addProduct() {
-
-  }
 
   getProducts(): Observable<any> {
     return this._httpService.get(this._environment.baserUrl);
@@ -27,7 +24,7 @@ export class ProductService {
   editProduct(productId: number, productDetail: ProductDto): Observable<any> {
     return this._httpService.put(`${this._environment.baserUrl}/` + productId, productDetail);
   }
-  searchProduct() {
-
+  addProduct(productDetail: ProductDto): Observable<any> {
+    return this._httpService.post(`${this._environment.baserUrl}/`, productDetail);
   }
 }
