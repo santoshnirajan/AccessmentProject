@@ -2,15 +2,15 @@
 <form class="center-form">
   <h2>Product Detail</h2>
   <div class="form-group">
-    <label for="textbox1">Name</label>
+    <label for="name">Name</label>
     <input type="text" id="textbox1" name="textbox1" [disabled]="true" [(ngModel)]="product.name">
   </div>
   <div class="form-group">
-    <label for="textbox2">Description</label>
+    <label for="description">Description</label>
     <input type="text" id="description" name="description" [disabled]="true" [(ngModel)]="product.description">
   </div>
   <div class="form-group">
-    <label for="textbox3">Price</label>
+    <label for="price">Price</label>
     <input type="text" id="number" name="number" [disabled]="true" [value]="product.price | currencyFormat">
   </div>
 </form>

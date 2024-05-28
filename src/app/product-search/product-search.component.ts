@@ -17,7 +17,7 @@ export class ProductSearchComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.searchSubscription = this.searchSubject
-      .pipe(debounceTime(300)) 
+      .pipe(debounceTime(200)) 
       .subscribe(searchValue => {
         this.search(searchValue);
       });

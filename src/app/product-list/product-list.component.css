@@ -30,4 +30,16 @@
   .update-button:hover {
     background-color: #0056b3; 
   }
+
+  .center-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+            /* Full viewport height */
+  }
+  
+  h1 {
+    margin: 0; /* Remove default margin */
+  }
+  
   

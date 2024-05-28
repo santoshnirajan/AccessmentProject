@@ -58,9 +58,20 @@
   display: flex;
   justify-content: center; /* Horizontally center the form */
   align-items: center; /* Vertically center the form */
-  height: 100vh; /* Set container height to full viewport height */
+  height: 50vh; /* Set container height to full viewport height */
 }
 
 .center-form {
   width: 300px; /* Adjust form width as needed */
+}
+
+.center-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+          /* Full viewport height */
+}
+
+h1 {
+  margin: 0; /* Remove default margin */
 }

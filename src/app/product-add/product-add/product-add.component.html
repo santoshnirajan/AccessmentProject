@@ -1,4 +1,7 @@
-
+<div class="center-container">
+  <h1>Add Product Details</h1>
+</div>
+<div>
 <p-toast position="bottom-right" key="br"></p-toast>
 <div class="container">
   <form [formGroup]="productForm">
@@ -26,7 +29,7 @@
 
     <div class="form-group">
       <label for="textbox3">Price</label>
-      <input type="text" id="number" formControlName="price" class="form-control"
+      <input type="text" id="number" formControlName="price" class="form-control" 
         [ngClass]="{'is-invalid': productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)}">
       <div
         *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)"
