@@ -1,6 +1,11 @@
 <div>
     <app-product-search></app-product-search>
 </div>
+<div class="form-group">
+    <button type="submit" class="update-button" (click)="addProduct()"
+     >Add Product</button>
+  </div>
+<p-toast position="bottom-right" key="br"></p-toast>
 <div style="padding-top: 10px;">
     <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="10">
         <ng-template pTemplate="header">
@@ -13,7 +18,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
-            <tr>
+            <tr  appHighlight="lightblue">
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
@@ -27,7 +32,6 @@
                         </div>
                     </div>
                 </td>
-                <!-- <td><p-speedDial [model]="items" direction="left" type="circle" [radius]="10"></p-speedDial></td> -->
             </tr>
         </ng-template>
     </p-table>

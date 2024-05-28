@@ -2,7 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { Product } from '../model/product.model';
 import { Router } from '@angular/router';
-import { MenuItem, PrimeIcons } from 'primeng/api';
+import { MenuItem, MessageService, PrimeIcons } from 'primeng/api';
 import { SearchService } from '../product-search-service/search-service.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private _productService: ProductService,
     private _router: Router,
-    private _searchService: SearchService
+    private _searchService: SearchService,
+    private _messageService: MessageService
   ) {
     this.items =
       [
@@ -76,11 +77,14 @@ export class ProductListComponent implements OnInit {
           this.products = res;
         },
         error: (err) => {
-          console.log("error", err);
+          this._messageService.add({ severity: 'error', summary: 'Error', detail: 'Error Selecting Product' })
         },
         complete: () => {
           this.clonedProducts = this.products.slice();
         }
       });
+  }
+  addProduct(){
+    this._router.navigateByUrl("/product");
   }
 }
